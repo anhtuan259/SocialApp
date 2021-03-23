@@ -3,9 +3,7 @@ import { Text, View, StyleSheet, TouchableOpacity, StatusBar } from 'react-nativ
 import * as firebase from 'firebase'
 
 export default class HomeScreen extends Component {
-    static navigationOptions = {
-        header: null
-    }
+
 
     state = {
         email: "",

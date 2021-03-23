@@ -35,7 +35,7 @@ export default class RegisterScreen extends Component {
                     <View style={styles.borderLogin}>
 
                         <Text style={styles.greeting}>
-                            {`Hello again.\nWelcomeBack.`}
+                            {`Hello.\nCreate a account!.`}
                         </Text>
                         <View style={styles.errorMessage}>
                             {this.state.errorMessage &&
@@ -58,7 +58,7 @@ export default class RegisterScreen extends Component {
                                     value={this.state.name}
                                 ></TextInput>
                             </View>
-                            <View >
+                            <View style={{ marginTop: 30, }}>
                                 <Text
                                     style={styles.inputTitle} >Email</Text>
 
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     greeting: {
         marginTop: 35,
         fontSize: 20,
-        fontWeight: "400",
+        fontWeight: "600",
         textAlign: "center",
         color: "#fff"
     },

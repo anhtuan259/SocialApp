@@ -3,6 +3,7 @@ import { Text, View, StyleSheet, TextInput, TouchableOpacity, StatusBar, Image, 
 import * as firebase from "firebase";
 
 export default class LoginScreen extends Component {
+
     state = {
         email: "",
         password: "",
