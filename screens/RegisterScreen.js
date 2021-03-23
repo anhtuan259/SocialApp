@@ -4,6 +4,7 @@ import * as firebase from "firebase";
 
 export default class RegisterScreen extends Component {
     state = {
+        name: "",
         email: "",
         password: "",
         errorMessage: null
@@ -14,7 +15,12 @@ export default class RegisterScreen extends Component {
         console.log(email);
         firebase
             .auth()
-            .signInWithEmailAndPassword(email, password)
+            .createUserWithEmailAndPassword(this.state.email, this.state.password)
+            .then(userCredentials => {
+                return userCredentials.user.updateProfile({
+                    displayName: this.state.name
+                })
+            })
             .catch(error => this.setState({ errorMessage: error.message }));
     }
 
@@ -27,9 +33,7 @@ export default class RegisterScreen extends Component {
 
 
                     <View style={styles.borderLogin}>
-                        {/* <View style={styles.coverLogo}>
-                            <Image source={require('../assets/logo.png')} style={styles.coverLogo} />
-                        </View> */}
+
                         <Text style={styles.greeting}>
                             {`Hello again.\nWelcomeBack.`}
                         </Text>
@@ -42,6 +46,18 @@ export default class RegisterScreen extends Component {
 
 
                         <View style={styles.form}>
+                            <View >
+                                <Text
+                                    style={styles.inputTitle} >Name</Text>
+
+                                <TextInput
+                                    style={styles.input}
+                                    autoCapitalize="none"
+
+                                    onChangeText={name => this.setState({ name })}
+                                    value={this.state.name}
+                                ></TextInput>
+                            </View>
                             <View >
                                 <Text
                                     style={styles.inputTitle} >Email</Text>
