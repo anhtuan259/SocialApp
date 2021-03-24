@@ -10,8 +10,8 @@ export default class LoginScreen extends Component {
     };
 
     state = {
-        email: "",
-        password: "",
+        email: "13@gmail.com",
+        password: "123456",
         errorMessage: null
     }
 

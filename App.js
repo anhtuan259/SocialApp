@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Ionicons, AntDesign, MaterialCommunityIcons, FontAwesome } from "@expo/vector-icons";
+import { styleContainer } from "./styles/styleHome";
 
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
@@ -11,6 +12,7 @@ import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import LoadingScreen from './screens/LoadingScreen';
 import MapScreen from './screens/MapScreen';
+import SettingsScreen from './screens/SettingScreen';
 
 import * as firebase from 'firebase';
 
@@ -28,7 +30,15 @@ if (!firebase.apps.length) {
   console.log('connected!');
 }
 
-
+class ListScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>List</Text>
+      </View>
+    );
+  }
+}
 
 
 class ProfileScreen extends React.Component {
@@ -41,19 +51,7 @@ class ProfileScreen extends React.Component {
   }
 }
 
-class SettingsScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Settings!</Text>
-      </View>
-    );
-  }
-}
 
-// const AppStack = createStackNavigator({
-//   Home: HomeScreen
-// })
 
 const AppTabNavigator = createBottomTabNavigator(
 
@@ -64,11 +62,19 @@ const AppTabNavigator = createBottomTabNavigator(
         tabBarIcon: ({ tintColor }) => <FontAwesome name="user" size={25} color={tintColor} />
       }
     },
+    List: {
+      screen: ListScreen,
+      navigationOptions: {
+        tabBarIcon: ({ tintColor }) => <Ionicons name="list" size={25} color={tintColor} />
+      }
+    },
 
     Home: {
       screen: HomeScreen,
       navigationOptions: {
-        tabBarIcon: ({ tintColor }) => <Ionicons name="ios-home" size={25} color={tintColor} />
+        tabBarIcon: ({ tintColor }) =>
+          <MaterialCommunityIcons name="home-circle" size={55} color={'crimson'} style={styleContainer.HomeTab} />
+
       }
     },
 
@@ -90,8 +96,9 @@ const AppTabNavigator = createBottomTabNavigator(
       activeTintColor: '#161F3D',
       inactiveTintColor: '#B8BBC4',
       showLabel: false,
-      initialRouteName: 'Home'
-    }
+
+    },
+    initialRouteName: 'Home'
   }
 )
 

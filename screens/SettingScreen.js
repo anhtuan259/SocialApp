@@ -2,22 +2,11 @@ import React, { Component } from 'react'
 import { Text, View, StyleSheet, TouchableOpacity, StatusBar } from 'react-native'
 import * as firebase from 'firebase'
 
-export default class HomeScreen extends Component {
+export default class SettingsScreen extends Component {
     static navigationOptions = {
         // header: null
         headerShown: false
     };
-
-    state = {
-        email: "",
-        name: ""
-    }
-
-    componentDidMount() {
-        const { email, name } = firebase.auth().currentUser;
-
-        this.setState({ email, name });
-    }
 
     signOutUser = () => {
         firebase.auth().signOut();
@@ -30,9 +19,12 @@ export default class HomeScreen extends Component {
             <View style={styles.container}>
                 <StatusBar barStyle="light-content" />
 
-                <Text style={{ fontSize: 30, color: 'red', fontWeight: 'bold' }}>Home</Text>
-                <Text>{this.state.name}</Text>
-
+                <TouchableOpacity
+                    style={{ marginTop: 32 }}
+                    onPress={this.signOutUser}
+                >
+                    <Text style={styles.button}>Logout</Text>
+                </TouchableOpacity>
             </View>
 
         )
