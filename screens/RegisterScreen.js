@@ -3,6 +3,11 @@ import { Text, View, StyleSheet, TextInput, TouchableOpacity, StatusBar, Image, 
 import * as firebase from "firebase";
 
 export default class RegisterScreen extends Component {
+    static navigationOptions = {
+        // header: null
+        headerShown: false
+    };
+
     state = {
         name: "",
         email: "",
