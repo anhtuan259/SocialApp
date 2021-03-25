@@ -5,7 +5,7 @@ import {
 } from 'react-native'
 import MapView from 'react-native-maps';
 
-export default class MapScreen extends Component {
+export default class MapScreen extends React.Component {
 
 
     render() {
@@ -26,6 +26,30 @@ export default class MapScreen extends Component {
                         coordinate={{
                             latitude: 19.7680054,
                             longitude: 105.7775897
+                        }}
+                        title={"hồng đức"}
+                        description={"description"}
+                    />
+                    <MapView.Marker
+                        coordinate={{
+                            latitude: 19.7700,
+                            longitude: 105.7771
+                        }}
+                        title={"hồng đức"}
+                        description={"description"}
+                    />
+                    <MapView.Marker
+                        coordinate={{
+                            latitude: 19.7707,
+                            longitude: 105.7743
+                        }}
+                        title={"hồng đức"}
+                        description={"description"}
+                    />
+                    <MapView.Marker
+                        coordinate={{
+                            latitude: 19.7683,
+                            longitude: 105.7743
                         }}
                         title={"hồng đức"}
                         description={"description"}

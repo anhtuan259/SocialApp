@@ -8,6 +8,10 @@ export const styleContainer = StyleSheet.create(
             shadowOffset: { width: 1, height: 1 },
             shadowRadius: 10,
             shadowOpacity: 0.3
-        }
+        },
+        containerContent: {
+            backgroundColor: "#fff",
+            flex: 1
+        },
     }
 )

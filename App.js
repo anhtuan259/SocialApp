@@ -13,8 +13,12 @@ import RegisterScreen from './screens/RegisterScreen';
 import LoadingScreen from './screens/LoadingScreen';
 import MapScreen from './screens/MapScreen';
 import SettingsScreen from './screens/SettingScreen';
+import RestaurantScreen from './screens/RestaurantScreen';
+import ProfileScreen from './screens/ProfileScreen';
 
 import * as firebase from 'firebase';
+
+
 
 var firebaseConfig = {
   apiKey: "AIzaSyA6geeLnpoM_JEgYDTaixoS04-_i0WLdf4",
@@ -30,29 +34,6 @@ if (!firebase.apps.length) {
   console.log('connected!');
 }
 
-class ListScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>List</Text>
-      </View>
-    );
-  }
-}
-
-
-class ProfileScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Profile</Text>
-      </View>
-    );
-  }
-}
-
-
-
 const AppTabNavigator = createBottomTabNavigator(
 
   {
@@ -63,7 +44,7 @@ const AppTabNavigator = createBottomTabNavigator(
       }
     },
     Restaurant: {
-      screen: ListScreen,
+      screen: RestaurantScreen,
       navigationOptions: {
         tabBarIcon: ({ tintColor }) => <FontAwesome5 name="store" size={20} color={tintColor} />
       }
@@ -73,7 +54,7 @@ const AppTabNavigator = createBottomTabNavigator(
       screen: HomeScreen,
       navigationOptions: {
         tabBarIcon: ({ tintColor }) =>
-          <MaterialCommunityIcons name="home-circle" size={55} color={'crimson'} style={styleContainer.HomeTab} />
+          <MaterialCommunityIcons name="home-circle" size={50} color={'crimson'} style={styleContainer.HomeTab} />
 
       }
     },
