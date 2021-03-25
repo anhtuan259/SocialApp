@@ -1,12 +1,23 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Text, View, StyleSheet, TouchableOpacity, StatusBar } from 'react-native'
 import * as firebase from 'firebase'
 
-export default class SettingsScreen extends Component {
+export default class SettingsScreen extends React.Component {
     static navigationOptions = {
         // header: null
         headerShown: false
     };
+
+    state = {
+        email: "",
+        displayNamedisplayName: ""
+    }
+
+    componentDidMount() {
+        const { email, displayName } = firebase.auth().currentUser;
+
+        this.setState({ email, displayName });
+    }
 
     signOutUser = () => {
         firebase.auth().signOut();
@@ -18,6 +29,8 @@ export default class SettingsScreen extends Component {
 
             <View style={styles.container}>
                 <StatusBar barStyle="light-content" />
+
+                <Text>hi !{this.state.displayName}</Text>
 
                 <TouchableOpacity
                     style={{ marginTop: 32 }}

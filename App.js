@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Ionicons, AntDesign, MaterialCommunityIcons, FontAwesome } from "@expo/vector-icons";
+import { Ionicons, AntDesign, MaterialCommunityIcons, FontAwesome, FontAwesome5 } from "@expo/vector-icons";
 import { styleContainer } from "./styles/styleHome";
 
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
@@ -62,10 +62,10 @@ const AppTabNavigator = createBottomTabNavigator(
         tabBarIcon: ({ tintColor }) => <FontAwesome name="user" size={25} color={tintColor} />
       }
     },
-    List: {
+    Restaurant: {
       screen: ListScreen,
       navigationOptions: {
-        tabBarIcon: ({ tintColor }) => <Ionicons name="list" size={25} color={tintColor} />
+        tabBarIcon: ({ tintColor }) => <FontAwesome5 name="store" size={20} color={tintColor} />
       }
     },
 
